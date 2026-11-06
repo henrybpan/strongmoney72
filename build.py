@@ -22,7 +22,7 @@ def main():
         html,
     )
     (ROOT / "index.html").write_text(html)
-    links = re.findall(r'(?:href|src)="((?:docs|audio|letters)/[^"]+|styles\.css|app\.js|favicon\.svg)"', html)
+    links = re.findall(r'(?:href|src)="((?:docs|audio|letters|assets)/[^"]+|styles\.css|app\.js|favicon\.svg)"', html)
     missing = [link for link in links if not (ROOT / link).is_file()]
     if missing:
         raise SystemExit(f"Missing files: {missing}")
